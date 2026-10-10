@@ -4,7 +4,38 @@ A working local debugger with a custom **C++ / Linux ptrace / CMake** backend, *
 
 The project requirements were extracted from the provided two-page PDF. Scope, gaps, syscall semantics, design decisions and acceptance criteria are in [SPEC.md](SPEC.md); implementation milestones in [PLAN.md](PLAN.md); verification evidence and limitations in [STATUS.md](STATUS.md).
 
-## Windows setup (tested path)
+## Ubuntu in VirtualBox (native Linux workflow)
+
+Run the following in a terminal **inside your Ubuntu VM**. Use an x86-64 Ubuntu 22.04 or later guest. Clone into the guest's home directory so it has its own Linux build and node_modules. Existing WSL builds, CMake caches and traces cannot be reused at this different path/environment.
+
+This repository is private. Sign into your GitHub account using GitHub CLI's browser/device login (no passwords or tokens need to be pasted into this chat):
+
+```bash
+sudo apt update
+sudo apt install -y git gh
+gh auth login
+cd ~
+gh repo clone Piyush-Sagar/web-based-linux-process-time-travel-debugger
+cd web-based-linux-process-time-travel-debugger
+bash scripts/setup.sh
+bash scripts/run.sh
+```
+
+Keep that terminal open and visit **http://localhost:8080 in Ubuntu's browser inside the VM**. Both backend and frontend run in the VM. The default loopback address belongs to the guest; a Windows browser's localhost addresses the Windows host. The local-only binding is preserved; opening this directly from Windows would need a separate SSH tunnel setup.
+
+Setup installs Linux build dependencies using sudo. If the guest has no Node >=20, it downloads a pinned official Node 22 binary into ignored `.tools/node`, verifies SHA-256, and uses it without changing system Node. It runs actual ptrace preflight, builds the engine/demos, runs both Linux integration tests, installs Linux frontend dependencies and builds the UI. **Do not proceed after a failed preflight/replay test**: use that failure to diagnose the guest's kernel/CPU restrictions.
+
+For browser verification in the guest, run from the repo root:
+
+```bash
+bash scripts/verify.sh
+```
+
+This installs Chromium and its Ubuntu libraries (sudo may be requested), then runs the same real browser/API/replay tests. The VirtualBox guest is not considered verified until these commands pass there. Known verification results in this repo initially came from WSL2. Guest execution does not require VirtualBox Guest Additions; host-side inspection used them only to read available VM metadata.
+
+Once running, choose `crash.cpp`, Launch process, Continue, inspect an earlier step, then Restore & replay. No PowerShell or WSL launcher is used in this workflow. `setup.sh --skip-system-packages` is available when the Linux build dependencies are already installed.
+
+## Windows / WSL2 setup (previously tested path)
 
 Prerequisites: Windows with **Ubuntu WSL2**, and Windows **Node.js 20+** (tested with 24.18.1). No Docker daemon is needed. If Ubuntu is absent, run `wsl --install -d Ubuntu`, finish its initial account setup, and confirm `wsl --list --verbose` reports version 2. Backend binaries must be built inside Linux.
 

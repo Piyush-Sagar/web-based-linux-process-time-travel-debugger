@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "environment": "Fresh source copy on Linux filesystem inside Ubuntu WSL2; NOT VirtualBox",
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "command": "bash scripts/setup.sh --skip-system-packages",
+  "checks": {
+    "bash_syntax": "PASS for setup.sh, run.sh, verify.sh, linux-env.sh",
+    "official_node_archive_sha256": "PASS",
+    "node": "v22.23.3 Linux x64 in .tools/node",
+    "ptrace_preflight": "PASS",
+    "fresh_cmake_build": "PASS",
+    "engine_replay": "PASS",
+    "api_sessions": "PASS",
+    "linux_npm_ci": "PASS",
+    "typescript_and_frontend_build": "PASS"
+  },
+  "virtualbox_guest": {
+    "name": "ubuntu",
+    "running": true,
+    "reported_os": "Linux",
+    "reported_kernel": "7.0.0-34-generic",
+    "authenticated_execution_access": false,
+    "replay_verification": "PENDING: run setup.sh and verify.sh inside the guest"
+  }
+}

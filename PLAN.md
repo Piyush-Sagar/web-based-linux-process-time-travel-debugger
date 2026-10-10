@@ -8,7 +8,7 @@
 6. React/TypeScript frontend: session/demo controls, timeline, historical/live labels, explicit restore action, register and memory inspectors, event list, error states. Build and drive in browser.
 7. End-to-end and negative tests; scripts for Windows/WSL setup, run and verify; final evidence/limits in STATUS.md.
 
-## Verification commands (from repo in Ubuntu WSL2)
+## Verification commands (from repo inside target Ubuntu Linux)
 `cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug`
 
 `cmake --build build`
@@ -20,3 +20,5 @@
 Windows PowerShell, in `frontend`: `npm.cmd ci`, `npm.cmd run build`, `npx.cmd playwright install chromium`, `npm.cmd run test:e2e` (Windows Node >=20; tested 24). Entirely Linux frontend work also requires Node >=20 and a platform-specific npm ci.
 
 CLI/API/setup commands are finalized in README. PowerShell scripts/setup.ps1, scripts/run.ps1 and scripts/verify.ps1 provide the supported Windows workflow. Update STATUS after every milestone and retain actual failures and fixes.
+
+Native Ubuntu / VirtualBox: `bash scripts/setup.sh`, `bash scripts/run.sh`, `bash scripts/verify.sh`. Setup validates ptrace and replay in that guest before frontend build. Keep VirtualBox verification evidence separate from WSL evidence.

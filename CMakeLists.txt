@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(time_travel_debugger LANGUAGES C CXX)
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "Linux" OR NOT CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|AMD64")
-  message(FATAL_ERROR "Backend requires x86-64 Linux. On Windows build inside Ubuntu WSL2.")
+  message(FATAL_ERROR "Backend requires x86-64 Linux. Build inside your Ubuntu VirtualBox guest or Ubuntu WSL2.")
 endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
