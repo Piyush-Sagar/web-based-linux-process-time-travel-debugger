@@ -57,3 +57,8 @@
 - Requested repository target: `Piyush-Sagar/web-based-linux-process-time-travel-debugger`, private visibility. Source, documentation, setup/demo/verification scripts and test evidence included; generated traces, build outputs and dependencies excluded.
 - `.gitattributes` enforces LF on checkout so Bash scripts work when cloning with Windows Git and running inside WSL. README now includes the clone/setup/run commands.
 - Existing verification remains 2/2 Linux tests and 3/3 browser tests; publication changes affect documentation and Git line-ending metadata only.
+
+## Startup troubleshooting follow-up
+- Reproduced the reported demo.ps1 connection error: the backend was not running (health endpoint unreachable; no ttd-server process). demo.ps1 is a client and requires run.ps1 to remain active in another terminal.
+- Added a health preflight with an explicit startup command and clean nonzero exit when unavailable, plus detection of an unrelated application on port 8080. README now explicitly explains the two-terminal workflow.
+- Verified unavailable-backend messaging, then started the actual WSL backend and ran demo.ps1 successfully: SIGSEGV at 141, verified targets 1/39/57/140/141, final live restore at 39, zero duplicate output. Stopped the verification instance so the user can own the foreground server in their terminal.

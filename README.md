@@ -62,7 +62,7 @@ Step 0 follows one bootstrap instruction at `_start`, making reserved EFLAGS bit
 
 Other demos: `clean.cpp` exits normally, `forbidden.cpp` attempts unsupported getpid and is rejected **before** that syscall executes, and `loop.cpp` demonstrates asynchronous pause and the recording limit.
 
-With the server running, this PowerShell command also performs the full crash/history/termination/multiple-target replay demonstration, asserts matching registers/memory and zero duplicate output, and leaves a real session restored at step 39 for the browser:
+Keep `scripts/run.ps1` running in one PowerShell window. In a **second PowerShell window**, from the project folder, this command performs the full crash/history/termination/multiple-target replay demonstration, asserts matching registers/memory and zero duplicate output, and leaves a real session restored at step 39 for the browser. `demo.ps1` is a client; it does not start the server. It reports the start command if the backend is unavailable.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\demo.ps1
