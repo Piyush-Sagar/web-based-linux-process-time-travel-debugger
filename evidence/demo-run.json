@@ -1,0 +1,50 @@
+{
+    "result":  "PASS",
+    "original_pid":  618,
+    "original_status":  "terminated",
+    "crash_step":  141,
+    "historical_execution_restored":  false,
+    "verified_targets":  [
+                             {
+                                 "checkpoint_step":  0,
+                                 "executed_instructions":  1,
+                                 "syscalls":  "recorded results injected; external writes suppressed",
+                                 "target_step":  1,
+                                 "verified":  true
+                             },
+                             {
+                                 "checkpoint_step":  20,
+                                 "executed_instructions":  19,
+                                 "syscalls":  "recorded results injected; external writes suppressed",
+                                 "target_step":  39,
+                                 "verified":  true
+                             },
+                             {
+                                 "checkpoint_step":  40,
+                                 "executed_instructions":  17,
+                                 "syscalls":  "recorded results injected; external writes suppressed",
+                                 "target_step":  57,
+                                 "verified":  true
+                             },
+                             {
+                                 "checkpoint_step":  140,
+                                 "executed_instructions":  0,
+                                 "syscalls":  "recorded results injected; external writes suppressed",
+                                 "target_step":  140,
+                                 "verified":  true
+                             },
+                             {
+                                 "checkpoint_step":  140,
+                                 "executed_instructions":  1,
+                                 "syscalls":  "recorded results injected; external writes suppressed",
+                                 "target_step":  141,
+                                 "verified":  true
+                             }
+                         ],
+    "current_session":  "s1",
+    "current_pid":  625,
+    "current_step":  39,
+    "current_mode":  "replay",
+    "registers_and_selected_memory":  "matched at all targets",
+    "external_replay_output":  "zero bytes"
+}

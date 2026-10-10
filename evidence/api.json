@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "http": "real C++ ptrace session controls and inspectors",
+  "websocket": "live session frame received",
+  "crash_step": 141,
+  "restorations": [
+    {
+      "checkpoint_step": 0,
+      "executed_instructions": 1,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 1,
+      "verified": true
+    },
+    {
+      "checkpoint_step": 20,
+      "executed_instructions": 19,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 39,
+      "verified": true
+    },
+    {
+      "checkpoint_step": 140,
+      "executed_instructions": 0,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 140,
+      "verified": true
+    },
+    {
+      "checkpoint_step": 140,
+      "executed_instructions": 1,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 141,
+      "verified": true
+    }
+  ],
+  "persisted_restart_restore": 39,
+  "negative_checks": [
+    "unsupported action",
+    "invalid target",
+    "unknown executable",
+    "cross-origin request",
+    "unsupported syscall"
+  ],
+  "pause": "cursor unchanged after pause"
+}

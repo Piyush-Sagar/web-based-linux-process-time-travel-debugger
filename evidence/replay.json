@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "linux": "6.6.87.2-microsoft-standard-WSL2",
+  "crash_step": 141,
+  "original_pid": 549,
+  "checkpoints": [
+    0,
+    20,
+    40,
+    60,
+    80,
+    100,
+    120,
+    140
+  ],
+  "restored_targets": [
+    {
+      "target": 1,
+      "checkpoint_step": 0,
+      "executed_instructions": 1,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 1,
+      "verified": true,
+      "pid": 601
+    },
+    {
+      "target": 19,
+      "checkpoint_step": 0,
+      "executed_instructions": 19,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 19,
+      "verified": true,
+      "pid": 602
+    },
+    {
+      "target": 39,
+      "checkpoint_step": 20,
+      "executed_instructions": 19,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 39,
+      "verified": true,
+      "pid": 603
+    },
+    {
+      "target": 140,
+      "checkpoint_step": 140,
+      "executed_instructions": 0,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 140,
+      "verified": true,
+      "pid": 604
+    },
+    {
+      "target": 141,
+      "checkpoint_step": 140,
+      "executed_instructions": 1,
+      "syscalls": "recorded results injected; external writes suppressed",
+      "target_step": 141,
+      "verified": true,
+      "pid": 605
+    }
+  ],
+  "persisted_restore": 39,
+  "nondeterministic_replay": "all captured inputs matched",
+  "side_effects": "original pipe output recorded once; zero pipe bytes emitted by replay",
+  "integrity": "checksum, replay divergence, mapping layout, and executable identity failures rejected",
+  "rejection": "getpid blocked before execution"
+}
